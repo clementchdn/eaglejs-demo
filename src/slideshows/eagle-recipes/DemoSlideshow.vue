@@ -2,7 +2,7 @@
 #DemoSlideshow
   .eg-slideshow
     slide
-      h2 Hi there !
+      h2 Julien le bouffon
       p I am slide 1
 
     slide

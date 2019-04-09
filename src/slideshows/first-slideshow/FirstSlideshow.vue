@@ -1,20 +1,16 @@
 <template lang='pug'>
 #MyFirstSlideshow
   .eg-slideshow
-    slide
-      h1 Hi there !
-      h4 This is your first slideshow !
+    slide(:steps=4)
+      h1 Bictoin
+      .subslide
+        h4 Cryptocurrency
+        h4 created in 2009
+        h4 by Satoshi Nakamoto
 
-    slide(enter='bounceInRight' leave='fadeOut')
-      h3 Hey modify me !
-      p.
-        Come on modify me ! If you are running the development server,
-        you will see the changes take effect immediately
+    slide(:step=2)
+        h1 SAlut
 
-    slide(enter='fadeIn')
-      h3 Want cool effects?
-      p.
-        Code your own, or try stealing for the other slideshows !
 </template>
 
 <script>
@@ -49,5 +45,6 @@ export default {
     max-width: 80%;
     margin: 0 auto;
   }
+
 }
 </style>

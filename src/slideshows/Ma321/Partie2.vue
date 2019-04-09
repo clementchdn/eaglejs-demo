@@ -4,13 +4,11 @@ eg-transition(:enter='enter', :leave='leave')
     .eg-slide-content
       h3(v-if='step < 12') Slide reuse
       h3(v-else) Slideception !!
-
       eg-transition(leave='bounceOutLeft')
-
         .subslide(v-if='step <= 2')
-          p Place a slide in a separate file to reuse it in different slideshows.
-            </br> You can also import the slides of a whole slideshow inside another.
-
+          p.
+            Place a slide in a separate file to reuse it in different slideshows.
+            You can also import the slides of a whole slideshow inside another.
           eg-code-block(lang='html').
             .eg-slideshow
 
@@ -37,10 +35,6 @@ eg-transition(:enter='enter', :leave='leave')
              span(v-if='(4 <= step) && (step < 6)') &nbsp; How is this slide <i>complex</i>?
           p(v-if='(6 <= step) && (step <= steps)') You: ...
 
-          eg-transition(enter='lightSpeedIn')
-            #awesome-slideshow.embedded-slideshow-container(v-if='step >= 5')
-              awesome-embedded-slideshow(:embedded='true', :username='username',
-                                         :preference='preference')
           eg-transition(enter='slideInUp')
             p(v-if='(11 < step)  && (step <= 13)').
               If you lost track: you are watching a slideshow embedded
@@ -48,7 +42,6 @@ eg-transition(:enter='enter', :leave='leave')
 </template>
 
 <script>
-import AwesomeEmbeddedSlideshow from './AwesomeEmbeddedSlideshow'
 import eagle from 'eagle.js'
 export default {
   props: {
@@ -57,7 +50,6 @@ export default {
     preference: { default: 'baby bunnies' }
   },
   components: {
-    'awesome-embedded-slideshow': AwesomeEmbeddedSlideshow
   },
   mixins: [eagle.slide]
 }

@@ -27,7 +27,7 @@
           h3 Oh really {{ username }} ? <br /> Want some more ?
       eg-transition(enter='bounceInDown' leave='bounceOutDown')
         .subslide(v-if='step >= 2')
-          h3(v-if='step===2') *Boom*
+          <h3 v-if='step===2'> *Boom*</h3>
           h3(v-if='step===3') Roooo...
           h3(v-if='step===4') Hnnnnng...
 
