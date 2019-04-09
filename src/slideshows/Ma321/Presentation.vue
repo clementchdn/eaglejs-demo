@@ -1,4 +1,4 @@
-<template>
+<template lang="pug">
 <div id="Presentation">
     <slide :steps="2" :mouseNavigation='false'>
         <h1 class="center"> Optimisation des méthodes itératives pour la résolution de systèmes d'équations linéaires </h1>
@@ -37,110 +37,110 @@
     <partie2></partie2>
 
     <slide>
-      <math>
+    <math>
       <mtable>
-        <mtr>
-          <mtd rowspan="3">
-          </mtd>
-          <mtd columnalign="right">
-          	<mi>a</mi>
-          </mtd>
-          <mtd columnalign="left">
-          	<mo>=</mo>
-          	<mi>b</mi>
-          </mtd>
-          <mtd rowspan="3">
-          </mtd>
-          <mtd columnalign="right">
-          	<mi>A</mi>
-          </mtd>
-          <mtd columnalign="left">
-          	<mo>=</mo>
-          	<mi>B</mi>
-          </mtd>
-          <mtd rowspan="3">
-          </mtd>
-          <mtd columnalign="right">
-          	<mi>x</mi>
-          </mtd>
-          <mtd columnalign="left">
-          	<mo>=</mo>
-          	<mi>y</mi>
-          	<mo>+</mo>
-          	<mi>z</mi>
-          </mtd>
-          <mtd columnalign="right">
-          	<mtext id="align-eq1">(1.6)</mtext>
-          </mtd>
-        </mtr>
-        <mtr>
-        <mtd columnalign="right">
-        	<mi>c</mi>
-        	<mi>d</mi>
-        </mtd>
-        <mtd columnalign="left">
-        	<mo>=</mo>
-        	<mi>e</mi>
-        	<mi>f</mi>
-        </mtd>
-        <mtd columnalign="right">
-        	<mi>C</mi>
-        	<mi>D</mi>
-        </mtd>
-        <mtd columnalign="left">
-        	<mo>=</mo>
-        	<mi>E</mi>
-        	<mi>F</mi>
-        </mtd>
-        <mtd columnalign="right">
-        	<mi>k</mi>
-        </mtd>
-        <mtd columnalign="left">
-        	<mo>=</mo>
-        	<mi>m</mi>
-        </mtd>
-        <mtd columnalign="right">
-        	<mtext id="align-eq2">(1.7)</mtext>
-        </mtd>
-        </mtr>
-        <mtr>
-        <mtd columnalign="right">
-        	<mi>g</mi>
-        	<mo>+</mo>
-        	<mi>h</mi>
-        </mtd>
-        <mtd columnalign="left">
-        	<mo>=</mo>
-        	<mi>i</mi>
-        	<mo>+</mo>
-        	<mi>j</mi>
-        </mtd>
-        <mtd columnalign="right">
-        	<mi>G</mi>
-        	<mo>+</mo>
-        	<mi>H</mi>
-        </mtd>
-        <mtd columnalign="left">
-        	<mo>=</mo>
-        	<mi>I</mi>
-        	<mo>+</mo>
-        	<mi>J</mi>
-        </mtd>
-        <mtd columnalign="right">
-        	<mi>n</mi>
-        	<mi>q</mi>
-        </mtd>
-        <mtd columnalign="left">
-        	<mo>=</mo>
-        	<mi>r</mi>
-        	<mi>s</mi>
-        </mtd>
-        <mtd columnalign="right">
-        	<mtext id="align-eq3">(1.8)</mtext>
-        </mtd>
-        </mtr>
-        </mtable>
-      </math>
+      <mtr>
+      <mtd rowspan="3">
+      </mtd>
+      <mtd columnalign="right">
+      <mi>a</mi>
+      </mtd>
+      <mtd columnalign="left">
+      <mo>=</mo>
+      <mi>b</mi>
+      </mtd>
+      <mtd rowspan="3">
+      </mtd>
+      <mtd columnalign="right">
+      <mi>A</mi>
+      </mtd>
+      <mtd columnalign="left">
+      <mo>=</mo>
+      <mi>B</mi>
+      </mtd>
+      <mtd rowspan="3">
+      </mtd>
+      <mtd columnalign="right">
+      <mi>x</mi>
+      </mtd>
+      <mtd columnalign="left">
+      <mo>=</mo>
+      <mi>y</mi>
+      <mo>+</mo>
+      <mi>z</mi>
+      </mtd>
+      <mtd columnalign="right">
+      <mtext id="align-eq1">(1.6)</mtext>
+      </mtd>
+      </mtr>
+      <mtr>
+      <mtd columnalign="right">
+      <mi>c</mi>
+      <mi>d</mi>
+      </mtd>
+      <mtd columnalign="left">
+      <mo>=</mo>
+      <mi>e</mi>
+      <mi>f</mi>
+      </mtd>
+      <mtd columnalign="right">
+      <mi>C</mi>
+      <mi>D</mi>
+      </mtd>
+      <mtd columnalign="left">
+      <mo>=</mo>
+      <mi>E</mi>
+      <mi>F</mi>
+      </mtd>
+      <mtd columnalign="right">
+      <mi>k</mi>
+      </mtd>
+      <mtd columnalign="left">
+      <mo>=</mo>
+      <mi>m</mi>
+      </mtd>
+      <mtd columnalign="right">
+      <mtext id="align-eq2">(1.7)</mtext>
+      </mtd>
+      </mtr>
+      <mtr>
+      <mtd columnalign="right">
+      <mi>g</mi>
+      <mo>+</mo>
+      <mi>h</mi>
+      </mtd>
+      <mtd columnalign="left">
+      <mo>=</mo>
+      <mi>i</mi>
+      <mo>+</mo>
+      <mi>j</mi>
+      </mtd>
+      <mtd columnalign="right">
+      <mi>G</mi>
+      <mo>+</mo>
+      <mi>H</mi>
+      </mtd>
+      <mtd columnalign="left">
+      <mo>=</mo>
+      <mi>I</mi>
+      <mo>+</mo>
+      <mi>J</mi>
+      </mtd>
+      <mtd columnalign="right">
+      <mi>n</mi>
+      <mi>q</mi>
+      </mtd>
+      <mtd columnalign="left">
+      <mo>=</mo>
+      <mi>r</mi>
+      <mi>s</mi>
+      </mtd>
+      <mtd columnalign="right">
+      <mtext id="align-eq3">(1.8)</mtext>
+      </mtd>
+      </mtr>
+      </mtable>
+    </math>
     </slide>
 </div>
 </template>
