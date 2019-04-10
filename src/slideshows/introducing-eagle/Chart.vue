@@ -1,5 +1,5 @@
 <template lang='pug'>
-canvas(:id='id', :width='width', :height='height')
+canvas(:id='id', :width=200, :height=200)
 </template>
 
 <script>

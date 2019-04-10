@@ -27,8 +27,7 @@ eg-transition(:enter='enter', :leave='leave')
                 p Please hire me
 
           eg-transition(enter='fadeIn')
-            p(v-if='step === 2').
-              For instance, this very complex slide you are watching is written in its own file.
+            p(v-if='step === 2') For instance, this very complex slide you are watching is written in its own file.
       eg-transition(enter='bounceInRight')
         .subslide(v-if='(step >= 3) && (step < 15)')
 

@@ -292,9 +292,8 @@
       eg-transition(enter='flipInX')
         h3 To use Presenter Mode
       eg-transition(enter='flipInX')
-        eg-code-block(lang='html').
+        eg-code-block(lang='html')
           .eg-slideshow
-
             slide
               p Eagle.is is awesome!<eg-code-comment :active='step === 2' enter='flipInY'>This would always show up</eg-code-comment>
               p(v-if="parentWindow") I can be a note!<eg-code-comment :active='step === 3' enter='flipInY'>This would only show on child window</eg-code-comment>

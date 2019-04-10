@@ -1,148 +1,227 @@
 <template lang="pug">
-<div id="Presentation">
-    <slide :steps="2" :mouseNavigation='false'>
-        <h1 class="center"> Optimisation des méthodes itératives pour la résolution de systèmes d'équations linéaires </h1>
-        <h2 class="center" v-if="step >= 2"> Quel est-ton nom ?</h2>
-        <div class="center" v-if="step >=2">
-          <input class="center" type="text" name="" value="" v-model="nomdumec"/>
-          <p class="center" v-if="nomdumec !== '' ">Bonjour {{nomdumec}}</p>
-        </div>
-
-    </slide>
-    <slide :mouseNavigation='false' :steps="7">
-        <p class="center"> Ok {{nomdumec}}, je vous montre la table des matières ?</p>
-        <div class="center">
-            <toggle-button v-model="tdm" color="#82C7EB" :sync="true" :labels="true"/>
-        </div>
-
-        <div v-if="tdm" class="tabledesmatieres subslide">
-            <ol v-if="step >= 1">
-                <li v-if="step >= 1"> Introduction </li>
-                <li>
-                  <ol v-if="step >=2"> Présentation des méthodes itératives classiques <div> <toggle-button v-model="slides.Partie2" colors="#daf9c6" :sync="true" :labels="true"/></div>
-                    <li v-if="step >=3"> Présentation générale des méthodes</li>
-                    <li v-if="step >=4"> Méthodes classiques</li>
-                  </ol>
-                </li>
-                <li>
-                  <ol v-if="step >=5"> Une nouvelle méthode : Richardson
-                    <li v-if="step >=6"> Présentation de la méthodes</li>
-                    <li v-if="step >=7"> Étude de convergence sur un exemple</li>
-                  </ol>
-                </li>
-            </ol>
-        </div>
-    </slide>
-
-    <partie2></partie2>
-
-    <slide>
-    <math>
-      <mtable>
-      <mtr>
-      <mtd rowspan="3">
-      </mtd>
-      <mtd columnalign="right">
-      <mi>a</mi>
-      </mtd>
-      <mtd columnalign="left">
-      <mo>=</mo>
-      <mi>b</mi>
-      </mtd>
-      <mtd rowspan="3">
-      </mtd>
-      <mtd columnalign="right">
-      <mi>A</mi>
-      </mtd>
-      <mtd columnalign="left">
-      <mo>=</mo>
-      <mi>B</mi>
-      </mtd>
-      <mtd rowspan="3">
-      </mtd>
-      <mtd columnalign="right">
-      <mi>x</mi>
-      </mtd>
-      <mtd columnalign="left">
-      <mo>=</mo>
-      <mi>y</mi>
-      <mo>+</mo>
-      <mi>z</mi>
-      </mtd>
-      <mtd columnalign="right">
-      <mtext id="align-eq1">(1.6)</mtext>
-      </mtd>
-      </mtr>
-      <mtr>
-      <mtd columnalign="right">
-      <mi>c</mi>
-      <mi>d</mi>
-      </mtd>
-      <mtd columnalign="left">
-      <mo>=</mo>
-      <mi>e</mi>
-      <mi>f</mi>
-      </mtd>
-      <mtd columnalign="right">
-      <mi>C</mi>
-      <mi>D</mi>
-      </mtd>
-      <mtd columnalign="left">
-      <mo>=</mo>
-      <mi>E</mi>
-      <mi>F</mi>
-      </mtd>
-      <mtd columnalign="right">
-      <mi>k</mi>
-      </mtd>
-      <mtd columnalign="left">
-      <mo>=</mo>
-      <mi>m</mi>
-      </mtd>
-      <mtd columnalign="right">
-      <mtext id="align-eq2">(1.7)</mtext>
-      </mtd>
-      </mtr>
-      <mtr>
-      <mtd columnalign="right">
-      <mi>g</mi>
-      <mo>+</mo>
-      <mi>h</mi>
-      </mtd>
-      <mtd columnalign="left">
-      <mo>=</mo>
-      <mi>i</mi>
-      <mo>+</mo>
-      <mi>j</mi>
-      </mtd>
-      <mtd columnalign="right">
-      <mi>G</mi>
-      <mo>+</mo>
-      <mi>H</mi>
-      </mtd>
-      <mtd columnalign="left">
-      <mo>=</mo>
-      <mi>I</mi>
-      <mo>+</mo>
-      <mi>J</mi>
-      </mtd>
-      <mtd columnalign="right">
-      <mi>n</mi>
-      <mi>q</mi>
-      </mtd>
-      <mtd columnalign="left">
-      <mo>=</mo>
-      <mi>r</mi>
-      <mi>s</mi>
-      </mtd>
-      <mtd columnalign="right">
-      <mtext id="align-eq3">(1.8)</mtext>
-      </mtd>
-      </mtr>
-      </mtable>
-    </math>
-    </slide>
-</div>
+#Presentation
+    slide(steps="2" :mouseNavigation='false')
+        h2.align-center Optimisation des méthodes itératives pour la résolution de systèmes d'équations linéaires
+        h3.align-center(v-if="step >= 2") Quel est-ton nom ?
+        .align-center(v-if="step >=2")
+          input.align-center(type="text" name="" value="" v-model="nomdumec")
+          p.align-center(v-if="nomdumec !== '' ") Bonjour {{nomdumec}}
+    slide(:mouseNavigation='false')
+      .align-center
+        <math class="align-center">
+          <mtable>
+          <mtr>
+          <mtd>
+          <mspace/>
+          </mtd>
+          <mtd columnalign="left">
+          <mstyle displaystyle="true">
+          <munder>
+          <mrow>
+          <munder accentunder="true">
+          <mrow>
+          <mo rspace="0.3em" lspace="0em" stretchy="true" fence="true" form="prefix">(</mo>
+          <mtable class="m-pmatrix">
+          <mtr>
+          <mtd>
+          <mo>-</mo>
+          <mn>3</mn>
+          </mtd>
+          <mtd>
+          <mn>2</mn>
+          </mtd>
+          </mtr>
+          <mtr>
+          <mtd>
+          <mn>1</mn>
+          </mtd>
+          <mtd>
+          <mo>-</mo>
+          <mn>4</mn>
+          </mtd>
+          </mtr>
+          </mtable>
+          <mo rspace="0em" lspace="0.3em" stretchy="true" fence="true" form="postfix">)</mo>
+          </mrow>
+          <mo stretchy="true">&UnderBrace;</mo>
+          </munder>
+          </mrow>
+          <mi>A</mi>
+          </munder>
+          </mstyle>
+          <mstyle displaystyle="true">
+          <munder>
+          <mrow>
+          <munder accentunder="true">
+          <mrow>
+          <mo rspace="0.3em" lspace="0em" stretchy="true" fence="true" form="prefix">(</mo>
+          <mtable class="m-pmatrix">
+          <mtr>
+          <mtd>
+          <mi>x</mi>
+          </mtd>
+          </mtr>
+          <mtr>
+          <mtd>
+          <mi>y</mi>
+          </mtd>
+          </mtr>
+          </mtable>
+          <mo rspace="0em" lspace="0.3em" stretchy="true" fence="true" form="postfix">)</mo>
+          </mrow>
+          <mo stretchy="true">&UnderBrace;</mo>
+          </munder>
+          </mrow>
+          <mi>x</mi>
+          </munder>
+          </mstyle>
+          <mo>=</mo>
+          <mstyle displaystyle="true">
+          <munder>
+          <mrow>
+          <munder accentunder="true">
+          <mrow>
+          <mo rspace="0.3em" lspace="0em" stretchy="true" fence="true" form="prefix">(</mo>
+          <mtable class="m-pmatrix">
+          <mtr>
+          <mtd>
+          <mn>1</mn>
+          </mtd>
+          </mtr>
+          <mtr>
+          <mtd>
+          <mo>-</mo>
+          <mn>7</mn>
+          </mtd>
+          </mtr>
+          </mtable>
+          <mo rspace="0em" lspace="0.3em" stretchy="true" fence="true" form="postfix">)</mo>
+          </mrow>
+          <mo stretchy="true">&UnderBrace;</mo>
+          </munder>
+          </mrow>
+          <mi>b</mi>
+          </munder>
+          </mstyle>
+          </mtd>
+          <mtd columnalign="right">
+          <mtext id="">(1)</mtext>
+          <mspace/>
+          </mtd>
+          </mtr>
+          </mtable>
+        </math>
+    slide(:mouseNavigation='false')
+      .align-center
+        <math>
+          <mtable>
+          <mtr>
+          <mtd rowspan="3">
+          </mtd>
+          <mtd columnalign="right">
+          <mi>a</mi>
+          </mtd>
+          <mtd columnalign="left">
+          <mo>=</mo>
+          <mi>b</mi>
+          </mtd>
+          <mtd rowspan="3">
+          </mtd>
+          <mtd columnalign="right">
+          <mi>A</mi>
+          </mtd>
+          <mtd columnalign="left">
+          <mo>=</mo>
+          <mi>B</mi>
+          </mtd>
+          <mtd rowspan="3">
+          </mtd>
+          <mtd columnalign="right">
+          <mi>x</mi>
+          </mtd>
+          <mtd columnalign="left">
+          <mo>=</mo>
+          <mi>y</mi>
+          <mo>+</mo>
+          <mi>z</mi>
+          </mtd>
+          <mtd columnalign="right">
+          <mtext id="align-eq1">(1.6)</mtext>
+          </mtd>
+          </mtr>
+          <mtr>
+          <mtd columnalign="right">
+          <mi>c</mi>
+          <mi>d</mi>
+          </mtd>
+          <mtd columnalign="left">
+          <mo>=</mo>
+          <mi>e</mi>
+          <mi>f</mi>
+          </mtd>
+          <mtd columnalign="right">
+          <mi>C</mi>
+          <mi>D</mi>
+          </mtd>
+          <mtd columnalign="left">
+          <mo>=</mo>
+          <mi>E</mi>
+          <mi>F</mi>
+          </mtd>
+          <mtd columnalign="right">
+          <mi>k</mi>
+          </mtd>
+          <mtd columnalign="left">
+          <mo>=</mo>
+          <mi>m</mi>
+          </mtd>
+          <mtd columnalign="right">
+          <mtext id="align-eq2">(1.7)</mtext>
+          </mtd>
+          </mtr>
+          <mtr>
+          <mtd columnalign="right">
+          <mi>g</mi>
+          <mo>+</mo>
+          <mi>h</mi>
+          </mtd>
+          <mtd columnalign="left">
+          <mo>=</mo>
+          <mi>i</mi>
+          <mo>+</mo>
+          <mi>j</mi>
+          </mtd>
+          <mtd columnalign="right">
+          <mi>G</mi>
+          <mo>+</mo>
+          <mi>H</mi>
+          </mtd>
+          <mtd columnalign="left">
+          <mo>=</mo>
+          <mi>I</mi>
+          <mo>+</mo>
+          <mi>J</mi>
+          </mtd>
+          <mtd columnalign="right">
+          <mi>n</mi>
+          <mi>q</mi>
+          </mtd>
+          <mtd columnalign="left">
+          <mo>=</mo>
+          <mi>r</mi>
+          <mi>s</mi>
+          </mtd>
+          <mtd columnalign="right">
+          <mtext id="align-eq3">(1.8)</mtext>
+          </mtd>
+          </mtr>
+          </mtable>
+        </math>
+    slide(:mouseNavigation='false' steps="6")
+      p Titre de mes slides
+      resultats1(v-if="step === 1")
+      resultats2(v-if="step === 3")
+      resultats3(v-if="step === 5")
 </template>
 <script>
 import eagle from 'eagle.js'
@@ -158,7 +237,10 @@ export default {
     path: 'Ma321'
   },
   components: {
-    'partie2': require('./Partie2').default
+    'partie2': require('./Partie2').default,
+    'resultats1': require('./Resultats1').default,
+    'resultats2': require('./Resultats2').default,
+    'resultats3': require('./Resultats3').default
   },
   data: function () {
     return {
@@ -199,6 +281,7 @@ export default {
 <style lang='scss'>
 @import 'node_modules/eagle.js/dist/themes/agrume/agrume';
 #Presentation {
+  padding: 50px;
   .frontpage {
     img {
       height: 7em;
@@ -211,7 +294,9 @@ export default {
   .center {
       margin-left: auto;
       margin-right: auto;
-      text-align: center;
+  }
+  .align-center{
+    text-align: center;
   }
   .heart {
     width: 1em;
