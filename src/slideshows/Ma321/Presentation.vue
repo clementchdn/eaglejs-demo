@@ -6,6 +6,7 @@
         .align-center(v-if="step >=2")
           input.align-center(type="text" name="" value="" v-model="nomdumec")
           p.align-center(v-if="nomdumec !== '' ") Bonjour {{nomdumec}}
+    richardson(:nomdumec='nomdumec', :mouseNavigation='false')
     slide(:mouseNavigation='false')
       .align-center
         <math class="align-center">
@@ -240,7 +241,8 @@ export default {
     'partie2': require('./Partie2').default,
     'resultats1': require('./Resultats1').default,
     'resultats2': require('./Resultats2').default,
-    'resultats3': require('./Resultats3').default
+    'resultats3': require('./Resultats3').default,
+    'richardson': require('./Richardson').default
   },
   data: function () {
     return {
@@ -280,6 +282,18 @@ export default {
 
 <style lang='scss'>
 @import 'node_modules/eagle.js/dist/themes/agrume/agrume';
+* {
+  p, math {
+    font-size: 25px;
+  }
+
+  .small-margin-left {
+      margin-left: 10px;
+  }
+  .small-marin-right {
+      margin-right: 10px;
+  }
+}
 #Presentation {
   padding: 50px;
   .frontpage {
