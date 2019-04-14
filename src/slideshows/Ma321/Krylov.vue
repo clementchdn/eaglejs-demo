@@ -1,5 +1,5 @@
 <template lang="pug">
-eg-transition(:enter='enter', :leave='lightSpeedOut' v-if="step <=27")
+eg-transition(:enter='enter', v-if="step <=27")
   .eg-slide(v-if='active && step < 6')
     .eg-slide-content
       p Les sous-espaces de Krylov, introduits en 1931 par le mathématicien éponyme, englobent un ensemble de méthodes permettant de résoudre différents problèmes de mathématiques.
@@ -447,7 +447,7 @@ eg-transition(:enter='enter', :leave='lightSpeedOut' v-if="step <=27")
       li(v-if='step >= 24') Calculer le résidu <math><mrow><mi>r</mi><mo>=</mo><mi>b</mi><mo>-</mo><mi>A</mi><msup><mi>x</mi><mrow><mo form="prefix">(</mo><mi>k</mi><mo form="postfix">)</mo></mrow></msup></mrow></math>
       li(v-if='step >= 25') Résoudre le système <math><mrow><mi>y</mi><mo>=</mo><msup><mrow><mo form="prefix">(</mo><msubsup><mi>W</mi><mi>m</mi><mi>t</mi></msubsup><mi>A</mi><msub><mi>V</mi><mi>m</mi></msub><mo form="postfix">)</mo></mrow><mn>-1</mn></msup><msubsup><mi>W</mi><mi>m</mi><mi>t</mi></msubsup><mi>r</mi></mrow></math>
       li(v-if='step >= 26') Créer la nouvelle solution : <math><mrow><mi>x</mi><mo>=</mo><mi>x</mi><mo>+</mo><msub><mi>V</mi><mi>m</mi></msub><mi>y</mi></mrow></math>
-  #codeGMRES(v-if="step === 27" leave='lightSpeedOut')
+  #codeGMRES(v-if="step === 27")
     .subgauche(v-if="step === 27")
       h3 Algorithme de GMRES
       img.center(src="./gmres.png")
