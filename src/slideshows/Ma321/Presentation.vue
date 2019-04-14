@@ -6,6 +6,7 @@
         .align-center(v-if="step >=2")
           input.align-center(type="text" name="" value="" v-model="nomdumec")
           p.align-center(v-if="nomdumec !== '' ") Bonjour {{nomdumec}}
+    krylov(:nomdumec='nomdumec', :mouseNavigation='false', :demo1='false', :demo2='false')
     richardson(:nomdumec='nomdumec', :mouseNavigation='false')
     slide(:mouseNavigation='false')
       .align-center
@@ -242,23 +243,14 @@ export default {
     'resultats1': require('./Resultats1').default,
     'resultats2': require('./Resultats2').default,
     'resultats3': require('./Resultats3').default,
-    'richardson': require('./Richardson').default
+    'richardson': require('./Richardson').default,
+    'krylov': require('./Krylov').default
   },
   data: function () {
     return {
       nomdumec: '',
-      tdm: false,
-      username: 'Tracy',
-      preloadedImages: {
-        computerKid: 'https://i.imgur.com/AAlntwU.gif',
-        youRightNow: 'https://i.imgur.com/DFBTj0a.gif',
-        bretagne: 'https://i.imgur.com/rYkJ6I8.jpg',
-        forrestRoad: 'https://i.imgur.com/hxTMFZW.jpg',
-        starrySky: 'https://i.imgur.com/yO2ivoD.jpg',
-        cityBokeh: 'https://i.imgur.com/kmmHith.jpg',
-        darkWoods: 'https://i.imgur.com/FL9mwpd.jpg',
-        pushButton: 'https://i.imgur.com/KaAyvZ5.gif'
-      }
+      demo1: false,
+      demo2: false
     }
   },
   methods: {
@@ -286,7 +278,15 @@ export default {
   p, math {
     font-size: 25px;
   }
-
+  .subslide {
+    .align-center {
+        text-align: center;
+    }
+    .center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
   .small-margin-left {
       margin-left: 10px;
   }
@@ -295,7 +295,8 @@ export default {
   }
 }
 #Presentation {
-  padding: 50px;
+  padding: 5vh;
+  height: 100%;
   .frontpage {
     img {
       height: 7em;

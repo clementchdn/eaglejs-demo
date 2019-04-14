@@ -318,9 +318,7 @@
       h3 Thank you !
       p This slideshow's so fresh, it has end credits.
       end-credits(:username='username')
-
 </template>
-
 <script>
 import eagle from 'eagle.js'
 
@@ -396,7 +394,6 @@ export default {
   }
 }
 </script>
-
 <style lang='scss'>
 @import 'node_modules/eagle.js/dist/themes/agrume/agrume';
 #IntroducingEagle {
