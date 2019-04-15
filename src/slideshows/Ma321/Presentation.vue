@@ -224,7 +224,6 @@
       resultats1(v-if="step === 1")
       resultats2(v-if="step === 3")
       resultats3(v-if="step === 5")
-      resultats4(v-if="step === 7")
 </template>
 <script>
 import eagle from 'eagle.js'
@@ -244,7 +243,6 @@ export default {
     'resultats1': require('./Resultats1').default,
     'resultats2': require('./Resultats2').default,
     'resultats3': require('./Resultats3').default,
-    'resultats4': require('./Resultats4').default,
     'richardson': require('./Richardson').default,
     'krylov': require('./Krylov').default
   },
@@ -283,6 +281,10 @@ export default {
   .subslide {
     .align-center {
         text-align: center;
+    }
+    .bordered {
+      border: 1px solid black;
+      padding: 6px;
     }
     .center {
       margin-left: auto;

@@ -1,5 +1,5 @@
 <template lang="pug">
-eg-transition(enter='slideInRight', v-if='step <=13')
+eg-transition(enter='slideInRight', v-if='step <= 21')
   .eg-slide(v-if='active && step <= 3')
     .eg-slide-content
       h2 Les limites de Jacobi et Gauss-Seidel
@@ -103,13 +103,107 @@ eg-transition(enter='slideInRight', v-if='step <=13')
       ul(v-if='step >=12')
         li(v-if='step >=12') Matrice d'itération : <math><mrow><mi>R</mi><mo>=</mo><mrow><mo form="prefix">(</mo><mi>I</mi><mo>-</mo><mi>&gamma;</mi><mi>A</mi><mo form="postfix">)</mo></mrow></mrow></math>
         li(v-if='step >=13') <math><mrow><mi>K</mi><mo>=</mo><mi>&gamma;</mi><mi>b</mi></mrow></math>
+  .subslide(v-if='step > 14 && step <= 17')
+    .eg-slide-content
+      h2 Intérêt de la méthode
+      p La condition de convergence reste inchangée
+      .align-center(v-if='step >= 15')
+        <math>
+          <mrow>
+          <mi>&rho;</mi>
+          <mrow>
+          <mo form="prefix">(</mo>
+          <mi>R</mi>
+          <mo form="postfix">)</mo>
+          </mrow>
+          <mo>&lt;</mo>
+          <mn>1</mn>
+          </mrow>
+        </math>
+      p(v-if='step >= 16') Pour Richardson, la matrice d'itération dépend de <math><mrow><mi>&gamma;</mi></mrow></math>
+      .align-center.bordered(v-if='step >= 17') Possibilité de choisir un <math><mrow><mi>&gamma;</mi></mrow></math> pour lequel la méthode converge
+  .subslide(v-if='step > 17 && step <= 20')
+    .eg-slide-content
+      h2 Choix du paramètre <math><mrow><mi>&gamma;</mi></mrow></math>
+      p Objectifs
+      #objectifs
+        .subgauche
+          #g1(v-if='step >= 19') 1. Assurer la convergence
+          #g2(v-if='step >= 20') 2. Minimiser le temps de convergence
+        .subdroite
+          #d1.align-center(v-if='step >= 19')
+            <math>
+              <mrow>
+              <mi>&rho;</mi>
+              <mrow>
+              <mo form="prefix">(</mo>
+              <mi>R</mi>
+              <mo form="prefix">(</mo>
+              <mi>&gamma;</mi>
+              <mo form="postfix">)</mo>
+              <mo form="postfix">)</mo>
+              </mrow>
+              <mo>=</mo>
+              <mstyle displaystyle="true">
+              <munder>
+              <mi>max</mi>
+              <mi>i</mi>
+              </munder>
+              </mstyle>
+              <mrow>
+              <mo form="prefix">(</mo>
+              <mo>|</mo>
+              <mn>1</mn>
+              <mo>-</mo>
+              <mi>&gamma;</mi>
+              <msub>
+              <mi>&lambda;</mi>
+              <mi>i</mi>
+              </msub>
+              <mo>|</mo>
+              <mo form="postfix">)</mo>
+              </mrow>
+              </mrow>
+            </math>
+          #2.align-center(v-if='step >= 20')
+            <math>
+              <mrow>
+              <msub>
+              <mi>&gamma;</mi>
+              <mrow>
+              <mi>o</mi>
+              <mi>p</mi>
+              <mi>t</mi>
+              <mi>i</mi>
+              <mi>m</mi>
+              <mi>a</mi>
+              <mi>l</mi>
+              </mrow>
+              </msub>
+              <mo>=</mo>
+              <mfrac linethickness="1">
+              <mn>2</mn>
+              <mrow>
+              <msub>
+              <mi>&lambda;</mi>
+              <mn>1</mn>
+              </msub>
+              <mo>+</mo>
+              <msub>
+              <mi>&lambda;</mi>
+              <mi>n</mi>
+              </msub>
+              </mrow>
+              </mfrac>
+              </mrow>
+            </math>
 </template>
 
 <script>
 import eagle from 'eagle.js'
 export default {
   props: {
-    steps: { default: 14 },
+    steps: { default: 21 },
     nomdumec: { default: 'Inconnu' }
   },
   components: {
@@ -118,17 +212,29 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
-.eg-slide {
+.eg-slide, .subslide {
   .eg-slide-content {
     display: grid;
     grid-row-gap: 10px;
 
-    #subgauche {
-        grid-column: 1;
+    #objectifs {
+      display: grid;
     }
-
-    #subdroite {
+    .subgauche {
+      display: grid;
+      margin: auto;
+      grid-column: 1;
+      grid-row-gap: 15px;
+      #g1 {grid-row: 1; font-size: 25px;}
+      #g2 {grid-row: 2; margin:auto; font-size: 25px;}
+    }
+    .subdroite {
+      display: grid;
+      margin: auto;
       grid-column: 2;
+      grid-row-gap: 15px;
+      #d1 {grid-row: 1;}
+      #d2 {grid-row: 2; margin: auto}
     }
     #awesome-slideshow {
       position: relative;
