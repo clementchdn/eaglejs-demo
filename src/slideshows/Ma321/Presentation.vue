@@ -295,6 +295,9 @@ export default {
   .small-marin-right {
       margin-right: 10px;
   }
+  ul, li {
+      font-size: 25px;
+  }
 }
 #Presentation {
   padding: 5vh;

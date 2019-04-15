@@ -433,7 +433,7 @@ eg-transition(:enter='enter', v-if="step <=27")
               toggle-button.inline.small-margin-left(v-model="demo1")
           li(v-if="step >=10") L'algorithme à base de sous-espaces de Krylov converge en <math><mi>n</mi></math> itérations maximales.
               toggle-button.inline.small-margin-left(v-model="demo2")
-      eg-transition(enter='slideInRight', leave='hinge')
+      eg-transition(enter='slideInRight', leave='zoomOut')
         #awesome-embedded.embedded-slideshow-container(v-if='(demo1 || demo2) && (step >= 11 && step <=20)')
           demoKrylov(:embedded='true', :mouseNavigation='false', :demo1='demo1', :demo2='demo2', :steps='10')
   .eg-slide(v-if="step >=21 && step < 27")

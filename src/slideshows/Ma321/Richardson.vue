@@ -1,5 +1,5 @@
 <template lang="pug">
-eg-transition(enter='slideInRight')
+eg-transition(enter='slideInRight', v-if='step <=13')
   .eg-slide(v-if='active && step <= 3')
     .eg-slide-content
       h2 Les limites de Jacobi et Gauss-Seidel
@@ -7,7 +7,7 @@ eg-transition(enter='slideInRight')
         li(v-if='step >= 2') Problème de fiabilité avec Jacobi et Gauss-Seidel au niveau de la convergence.
         li(v-if='step >= 3') Nécessité de garantir une convergence.
 
-  .subslide(v-if='step > 3 && step <= 8')
+  .subslide(v-if='step > 3 && step <= 9')
     .eg-slide-content
       h2 Garantie d'une convergence
       eg-transition(enter='lightSpeedIn' v-if='step >= 5')
@@ -35,34 +35,9 @@ eg-transition(enter='slideInRight')
             <mi>b</mi>
             </mrow></math>
       .align-center(v-if='step >= 7')
-         p Avec
-         <math>
-          <mtable class="m-align-starred">
-          <mtr>
-          <mtd rowspan="2">
-          <mspace/>
-          </mtd>
-          <mtd columnalign="right">
-          <mi>P</mi>
-          </mtd>
-          <mtd columnalign="left">
-          <mo>=</mo>
-          <mi>&beta;</mi>
-          <mi>I</mi>
-          <mo>,</mo>
-          <mi>&beta;</mi>
-          <mo>&isin;</mo>
-          <msup>
-          <mi>&Ropf;</mi>
-          <mo>*</mo>
-          </msup>
-          </mtd>
-          <mtd columnalign="right">
-          <mspace/>
-          </mtd>
-          </mtr>
-          <mtr>
-          <mtd columnalign="right">
+         p(v-if='step >= 7') Avec <math><mrow><mi>P</mi><mo>=</mo><mi>&beta;</mi><mi>I</mi></mrow></math>, <math><mrow><mi>&beta;</mi><mo>&isin;</mo><msup><mi>&Ropf;</mi><mo>*</mo></msup></mrow></math>
+         <math v-if='step >= 8'>
+          <mrow>
           <mo>&hArr;</mo>
           <msup>
           <mi>X</mi>
@@ -72,8 +47,6 @@ eg-transition(enter='slideInRight')
           <mn>1</mn>
           </mrow>
           </msup>
-          </mtd>
-          <mtd columnalign="left">
           <mo>=</mo>
           <mrow>
           <mo form="prefix">(</mo>
@@ -90,20 +63,53 @@ eg-transition(enter='slideInRight')
           <mo>+</mo>
           <mi>&gamma;</mi>
           <mi>b</mi>
-          </mtd>
-          <mtd columnalign="right">
-          <mspace/>
-          </mtd>
-          </mtr>
-          </mtable>
+          </mrow>
          </math>
+         p(v-if='step >= 9 ') où <math>
+          <mrow>
+          <mi>&gamma;</mi>
+          <mo>=</mo>
+          <mfrac linethickness="1">
+          <mn>1</mn>
+          <mi>&beta;</mi>
+          </mfrac>
+          </mrow></math>
+  .subslide(v-if='step > 9 && step <= 14')
+    .eg-slide-content
+      h2 Méthode de Richardson
+      p Modèle :
+      .align-center(v-if='step >= 11')
+        <math>
+            <mrow>
+            <msup>
+            <mi>X</mi>
+            <mrow>
+            <mi>k</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+            </mrow>
+            </msup>
+            <mo>=</mo>
+            <mi>R</mi>
+            <msup>
+            <mi>X</mi>
+            <mi>k</mi>
+            </msup>
+            <mo>+</mo>
+            <mi>K</mi>
+            </mrow>
+        </math>
+      p(v-if='step >=12') Caractéristiques :
+      ul(v-if='step >=12')
+        li(v-if='step >=12') Matrice d'itération : <math><mrow><mi>R</mi><mo>=</mo><mrow><mo form="prefix">(</mo><mi>I</mi><mo>-</mo><mi>&gamma;</mi><mi>A</mi><mo form="postfix">)</mo></mrow></mrow></math>
+        li(v-if='step >=13') <math><mrow><mi>K</mi><mo>=</mo><mi>&gamma;</mi><mi>b</mi></mrow></math>
 </template>
 
 <script>
 import eagle from 'eagle.js'
 export default {
   props: {
-    steps: { default: 12 },
+    steps: { default: 14 },
     nomdumec: { default: 'Inconnu' }
   },
   components: {
@@ -130,7 +136,6 @@ export default {
       width: 16em;
       height: 9em;
     }
-
   }
 }
 </style>
