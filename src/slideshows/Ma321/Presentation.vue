@@ -219,12 +219,12 @@
           </mtr>
           </mtable>
         </math>
-    slide(:mouseNavigation='false' steps="6")
+    slide(:mouseNavigation='false' steps="7")
       p Titre de mes slides
       resultats1(v-if="step === 1")
       resultats2(v-if="step === 3")
       resultats3(v-if="step === 5")
-      resultats4(v-if="step === 6")
+      resultats4(v-if="step === 7")
 </template>
 <script>
 import eagle from 'eagle.js'

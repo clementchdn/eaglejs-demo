@@ -7,6 +7,9 @@ eg-transition(enter="lightSpeedIn" leave="fadeOut")
 
 <script>
 import Chart from 'chart.js'
+import dataGS from './gauss-seidel_traite.txt'
+const dataGS1 = '/static/gauss-seidel_traite.txt'
+
 export default {
   props: {
     id: { default: () => Math.random().toString(36).substr(2, 10) },
@@ -22,11 +25,17 @@ export default {
     }
   },
   methods: {
-    readTextFile (file) {
+    readTextFile (filePath) {
+      var bc = require('babel-core').transform('code', {
+        plugins: ['import-static-files', { 'extensions': ['.jpg', '.png'] }]
+      })
+      var dataGS = require('./gauss-seidel_traite.txt')
+      console.log(dataGS1)
+      console.log(bc)
     }
   },
   mounted: function () {
-    this.readTextFile('./gauss-seidel_traite')
+    this.readTextFile('./gauss-seidel_traite.txt')
     var canvas = document.getElementById('myChart')
     var ctx = canvas.getContext('2d')
     // Reduce the animation steps for demo clarity.

@@ -1,85 +1,61 @@
 <template lang="pug">
-eg-transition(:nomdumec='nomdumec')
-  .eg-slide(v-if='active')
+eg-transition(enter='slideInRight')
+  .eg-slide(v-if='active && step <= 3')
     .eg-slide-content
-      h3 Richardson
-      p {{nomdumec}}
-      #subgauche
-        <math id="eq1">
-          <mtable>
-          <mtr>
-          <mtd>
-          <mspace/>
-          </mtd>
-          <mtd columnalign="left">
-          <mi>P</mi>
-          <mo>=</mo>
-          <mi>&beta;</mi>
-          <mi>I</mi>
-          <mtable>
-          <mtr>
-          <mtd>
-          <mtext>
-          p.small-margin-left.small-margin-right avec
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <mrow>
-          p.small-margin-left
-          <mi> I </mi>
-          </mrow>
-          </math>
-          p.small-margin-left.small-margin-right la matrice identité et
-          <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <mrow>
-          p.small-margin-left
-          <mi>&beta;</mi>
-          <mo>&isin;</mo>
-          <msup>
-          <mi>&Ropf;</mi>
-          <mo>*</mo>
-          </msup>
-          </mrow>
-          </math>
-          </mtext>
-          </mtd>
-          </mtr>
-          </mtable>
-          </mtd>
-          <mtd>
-          <mspace/>
-          </mtd>
-          </mtr>
-          </mtable>
-        </math>
-        p Notre système s'écrit alors de la manière suivante :
-        <math id="eq2">
+      h2 Les limites de Jacobi et Gauss-Seidel
+      ul(v-if='step >= 2')
+        li(v-if='step >= 2') Problème de fiabilité avec Jacobi et Gauss-Seidel au niveau de la convergence.
+        li(v-if='step >= 3') Nécessité de garantir une convergence.
+
+  .subslide(v-if='step > 3 && step <= 8')
+    .eg-slide-content
+      h2 Garantie d'une convergence
+      eg-transition(enter='lightSpeedIn' v-if='step >= 5')
+        h4.align-center Méthode de Richardson
+      .align-center(v-if='step >= 6')
+        <math>
+            <mrow>
+            <mi>A</mi>
+            <mi>X</mi>
+            <mo>=</mo>
+            <mi>b</mi>
+            <mo>&hArr;</mo>
+            <mi>P</mi>
+            <mi>X</mi>
+            <mo>=</mo>
+            <mrow>
+            <mo form="prefix">(</mo>
+            <mi>P</mi>
+            <mo>-</mo>
+            <mi>A</mi>
+            <mo form="postfix">)</mo>
+            </mrow>
+            <mi>X</mi>
+            <mo>+</mo>
+            <mi>b</mi>
+            </mrow></math>
+      .align-center(v-if='step >= 7')
+         p Avec
+         <math>
           <mtable class="m-align-starred">
           <mtr>
           <mtd rowspan="2">
           <mspace/>
           </mtd>
           <mtd columnalign="right">
-          <mi>&beta;</mi>
-          <mi>I</mi>
-          <mi>x</mi>
+          <mi>P</mi>
           </mtd>
           <mtd columnalign="left">
           <mo>=</mo>
-          </mtd>
-          <mtd rowspan="2">
-          <mspace/>
-          </mtd>
-          <mtd columnalign="right">
-          <mrow>
-          <mo form="prefix">(</mo>
           <mi>&beta;</mi>
           <mi>I</mi>
-          <mo>-</mo>
-          <mi>A</mi>
-          <mo form="postfix">)</mo>
-          </mrow>
-          <mi>x</mi>
-          <mo>+</mo>
-          <mi>b</mi>
+          <mo>,</mo>
+          <mi>&beta;</mi>
+          <mo>&isin;</mo>
+          <msup>
+          <mi>&Ropf;</mi>
+          <mo>*</mo>
+          </msup>
           </mtd>
           <mtd columnalign="right">
           <mspace/>
@@ -87,41 +63,17 @@ eg-transition(:nomdumec='nomdumec')
           </mtr>
           <mtr>
           <mtd columnalign="right">
-          <mi>x</mi>
+          <mo>&hArr;</mo>
+          <msup>
+          <mi>X</mi>
+          <mrow>
+          <mi>k</mi>
+          <mo>+</mo>
+          <mn>1</mn>
+          </mrow>
+          </msup>
           </mtd>
           <mtd columnalign="left">
-          <mo>=</mo>
-          </mtd>
-          <mtd columnalign="right">
-          <mrow>
-          <mo form="prefix">(</mo>
-          <mi>I</mi>
-          <mo>-</mo>
-          <mfrac linethickness="1.5px">
-          <mn>1</mn>
-          <mi>&beta;</mi>
-          </mfrac>
-          <mi>A</mi>
-          <mo form="postfix">)</mo>
-          </mrow>
-          <mi>x</mi>
-          <mo>+</mo>
-          <mfrac linethickness="1.5px">
-          <mn>1</mn>
-          <mi>&beta;</mi>
-          </mfrac>
-          <mi>b</mi>
-          </mtd>
-          <mtd columnalign="right">
-          <mspace/>
-          </mtd>
-          </mtr>
-          </mtable>
-        </math>
-        p Pour simplifier, nous écrirons
-        <math>
-          <mrow>
-          <mi>x</mi>
           <mo>=</mo>
           <mrow>
           <mo form="prefix">(</mo>
@@ -131,70 +83,27 @@ eg-transition(:nomdumec='nomdumec')
           <mi>A</mi>
           <mo form="postfix">)</mo>
           </mrow>
-          <mi>x</mi>
+          <msup>
+          <mi>X</mi>
+          <mi>k</mi>
+          </msup>
           <mo>+</mo>
           <mi>&gamma;</mi>
           <mi>b</mi>
-          <mtable>
-          <mtr>
-          <mtd>
-          <mtext>
-          p.small-margin-left avec
-          <math>
-          <mrow>
-          p.small-margin-left <mi>&gamma;</mi>
-          <mo>=</mo>
-          <mfrac linethickness="1.5px">
-          <mn>1</mn>
-          <mi>&beta;</mi>
-          </mfrac>
-          </mrow>
-          </math>
-          </mtext>
+          </mtd>
+          <mtd columnalign="right">
+          <mspace/>
           </mtd>
           </mtr>
           </mtable>
-          </mrow>
-        </math>
-      #subdroite.subslide
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
-          <mrow>
-          <mo rspace="0.3em" lspace="0em" stretchy="true" fence="true" form="prefix">{</mo>
-          <mtable class="m-cases" columnalign="left">
-          <mtr>
-          <mtd>
-          <mo>-</mo>
-          <mn>3</mn>
-          <mi>x</mi>
-          <mo>+</mo>
-          <mn>2</mn>
-          <mi>y</mi>
-          <mo>=</mo>
-          <mn>1</mn>
-          </mtd>
-          </mtr>
-          <mtr>
-          <mtd>
-          <mi>x</mi>
-          <mo>+</mo>
-          <mo>-</mo>
-          <mn>4</mn>
-          <mi>y</mi>
-          <mo>=</mo>
-          <mo>-</mo>
-          <mn>7</mn>
-          </mtd>
-          </mtr>
-          </mtable>
-          <mphantom rspace="0em" lspace="0.3em" stretchy="true" fence="true" form="postfix">}</mphantom>
-          </mrow>
-        </math>
+         </math>
 </template>
 
 <script>
 import eagle from 'eagle.js'
 export default {
   props: {
+    steps: { default: 12 },
     nomdumec: { default: 'Inconnu' }
   },
   components: {
