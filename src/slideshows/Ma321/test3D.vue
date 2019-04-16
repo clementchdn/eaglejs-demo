@@ -62,6 +62,7 @@ export default {
           point.push(errors[l], times[l], iterations[l])
           points.push(point)
         }
+        console.log(Math.min.apply(null, times))
         console.log('POINTS', points)
         var chart = new Highcharts.Chart({
           chart: {
@@ -97,18 +98,18 @@ export default {
               }
           },
           yAxis: {
-              min: 0,
-              max: 1e-4,
+              min: Math.min.apply(null, times) - (Math.min.apply(null, times)/10),
+              max: Math.max.apply(null,times) + (Math.max.apply(null, times)/10),
               title: null
           },
           xAxis: {
-              min: 0,
-              max: 1e-3,
+              min: Math.min.apply(null, errors) - (Math.min.apply(null, errors)/10),
+              max: Math.max.apply(null, errors) + (Math.max.apply(null, errors)/10),
               gridLineWidth: 1
           },
           zAxis: {
-              min: 0,
-              max: 100,
+              min: Math.min.apply(null, iterations) - (Math.min.apply(null, iterations)/10),
+              max: Math.max.apply(null, iterations) + (Math.max.apply(null, iterations)/10),
               showFirstLabel: false
           },
           legend: {
