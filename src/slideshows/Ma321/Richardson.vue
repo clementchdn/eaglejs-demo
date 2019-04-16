@@ -1,5 +1,5 @@
 <template lang="pug">
-eg-transition(enter='slideInRight', v-if='step <= 21')
+eg-transition(enter='slideInRight', v-if='step <= 22')
   .eg-slide(v-if='active && step <= 3')
     .eg-slide-content
       h2 Les limites de Jacobi et Gauss-Seidel
@@ -197,13 +197,19 @@ eg-transition(enter='slideInRight', v-if='step <= 21')
               </mfrac>
               </mrow>
             </math>
+  .subslide(v-if='step === 21')
+    .eg-slide-content
+      h2 Limite de la méthode
+      .align-center
+        h3 Calcul de valeurs propres !
+        p Puissance itérée, puissance inverse...
 </template>
 
 <script>
 import eagle from 'eagle.js'
 export default {
   props: {
-    steps: { default: 21 },
+    steps: { default: 22 },
     nomdumec: { default: 'Inconnu' }
   },
   components: {

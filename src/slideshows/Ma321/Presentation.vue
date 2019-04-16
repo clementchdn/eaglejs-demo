@@ -8,6 +8,7 @@
           p.align-center(v-if="nomdumec !== '' ") Bonjour {{nomdumec}}
     krylov(:nomdumec='nomdumec', :mouseNavigation='false', :demo1='false', :demo2='false')
     richardson(:nomdumec='nomdumec', :mouseNavigation='false')
+    sor(:nomdumec='nomdumec' :mouseNavigation='false')
     slide(:mouseNavigation='false')
       .align-center
         <math class="align-center">
@@ -244,6 +245,7 @@ export default {
     'resultats2': require('./Resultats2').default,
     'resultats3': require('./Resultats3').default,
     'richardson': require('./Richardson').default,
+    'sor': require('./SOR').default,
     'krylov': require('./Krylov').default
   },
   data: function () {
