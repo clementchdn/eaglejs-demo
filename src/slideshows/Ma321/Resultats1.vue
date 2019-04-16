@@ -23,6 +23,7 @@ export default {
   },
   mounted: function () {
     var canvas = document.getElementById('myChart')
+    console.log(canvas)
     var ctx = canvas.getContext('2d')
     // Reduce the animation steps for demo clarity.
     this.myChart = new Chart(ctx, {
