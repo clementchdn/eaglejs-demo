@@ -100,19 +100,25 @@ export default {
           yAxis: {
               min: Math.min.apply(null, times) - (Math.min.apply(null, times)/10),
               max: Math.max.apply(null,times) + (Math.max.apply(null, times)/10),
-              title: 'Temps de résolution en ms'
+              title:{
+                text: 'Temps de résolution en ms'
+              }
           },
           xAxis: {
               min: Math.min.apply(null, errors) - (Math.min.apply(null, errors)/10),
               max: Math.max.apply(null, errors) + (Math.max.apply(null, errors)/10),
-              title: 'Erreurs',
+              title: {
+                text: 'Erreurs'
+              },
               gridLineWidth: 1
           },
           zAxis: {
               min: Math.min.apply(null, iterations) - (Math.min.apply(null, iterations)/10),
               max: Math.max.apply(null, iterations) + (Math.max.apply(null, iterations)/10),
-              title: 'Nombre d\'itérations',
-              showFirstLabel: false
+              title: {
+                text: 'Nombre d\'itérations'
+              },
+              showFirstLabel: true
           },
           legend: {
               enabled: false

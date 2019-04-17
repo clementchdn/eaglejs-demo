@@ -26,48 +26,121 @@ export default {
     var ctx = canvas.getContext('2d')
     // Reduce the animation steps for demo clarity.
     this.myChart = new Chart(ctx, {
-      type: 'line',
+      type: 'bar',
       title: {
-        text: 'Teemps de résolution en secondes pour différentes tailles de matrices'
+        text: 'Nombre d\'itérations pour différentes tailles de matrice avec une précision de 1e-9'
       },
       data: {
-        labels: [3, 5, 10, 15, 20, 25, 50, 75, 100, 250, 500, 1000], // , 200, 500, 1000, 1001, 1010, 1050],
+        labels: ['5', '10', '25', '50', '100', '250', '500', '1000'],
         datasets: [{
-          label: 'temps Gauss',
-          data: [0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
-            0.00000000e+00, 0.00000000e+00, 4.28886414e-02, 1.49932861e-01,
-            2.86247730e-01], /* , 2.07795119e+00, 3.32249317e+01, 2.65067729e+02,
-            2.73051842e+02, 2.83206855e+02, 3.14005286e+02], */
-          borderWidth: 2,
-          borderColor: 'blue',
-          pointBackgroundColor: 'blue',
-          pointBorderColor: 'black',
-          fill: false,
-          cubicInterpolationMode: 'monotone'
-        },
-        {
-          label: 'temps Cholesky',
-          data: [1.95623636e-01, 1.99961662e-03, 9.96589661e-04, 1.99437141e-03,
-            5.70483208e-02, 0.00000000e+00, 3.12438011e-02, 6.24837875e-02,
-            1.41240835e-01], /* 1.11279655e+00, 1.36044064e+01, 1.04207876e+02,
-            1.02150656e+02], 1.06075644e+02, 1.16076639e+02], */
-          borderWidth: 2,
-          borderColor: 'red',
-          pointBackgroundColor: 'red',
-          pointBorderColor: 'grey',
-          fill: false,
-          cubicInterpolationMode: 'monotone'
-        }
-        ]
+          label: 'Gauss-Seidel',
+          data: [3.0, 3.0, 3.02, 3.13, 3.6, 4.0, 4.0, 3.6],
+          backgroundColor: [
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(255, 206, 86, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 206, 86, 1)'
+          ],
+          borderWidth: 1
+        }, {
+          label: 'Jacobi',
+          data: [3.01, 3.04, 3.08, 3.45, 3.83, 4.01, 4.0, 3.83],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 99, 132, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(255, 99, 132, 1)',
+            'rgba(255, 99, 132, 1)',
+            'rgba(255, 99, 132, 1)',
+            'rgba(255, 99, 132, 1)',
+            'rgba(255, 99, 132, 1)',
+            'rgba(255, 99, 132, 1)',
+            'rgba(255, 99, 132, 1)'
+          ],
+          borderWidth: 1
+        }, {
+          label: 'SOR',
+          data: [199.47, 374.77, 151.66, 218.43, 249.06, 195.89, 467.0, 249.06],
+          backgroundColor: [
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(54, 162, 235, 0.2)'
+          ],
+          borderColor: [
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(54, 162, 235, 1)'
+          ],
+          borderWidth: 1
+        }, {
+          label: 'GMRES',
+          data: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+          backgroundColor: [
+            'rgba(49, 199, 35, 0.2)',
+            'rgba(49, 199, 35, 0.2)',
+            'rgba(49, 199, 35, 0.2)',
+            'rgba(49, 199, 35, 0.2)',
+            'rgba(49, 199, 35, 0.2)',
+            'rgba(49, 199, 35, 0.2)',
+            'rgba(49, 199, 35, 0.2)',
+            'rgba(49, 199, 35, 0.2)'
+          ],
+          borderColor: [
+            'rgba(49, 199, 35, 1)',
+            'rgba(49, 199, 35, 1)',
+            'rgba(49, 199, 35, 1)',
+            'rgba(49, 199, 35, 1)',
+            'rgba(49, 199, 35, 1)',
+            'rgba(49, 199, 35, 1)',
+            'rgba(49, 199, 35, 1)',
+            'rgba(49, 199, 35, 1)'
+          ],
+          borderWidth: 1
+        }]
       },
       options: {
         title: {
           display: true,
-          text: 'Temps de résolution en s pour différentes tailles de matrices',
+          text: 'Erreurs pour des matrices de tailles différentes pour chaque méthode avec une précision de 1e-5 ',
           fontsize: 12
         },
         scales: {
           yAxes: [{
+            type: 'linear',
+            text: 'Temps de résolution en ms',
+            display: true,
             ticks: {
               beginAtZero: true
             }
