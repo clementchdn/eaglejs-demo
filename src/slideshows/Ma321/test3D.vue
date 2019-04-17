@@ -1,9 +1,9 @@
 <template lang='pug'>
 eg-transition(enter="bounceInRight" leave="slideOutLeft")
   .subslide
-    .center(style="width:80%; height: 50%; margin-top: 2em")
+    .center(style="width:80%; height: 50%; margin-top: 1em")
       <input type='file' id='fileInput' @change="onFileChange"/>
-      #container(style='height: 500px;')
+      #container(style='height: 600px; width: 900px;')
 </template>
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -85,7 +85,7 @@ export default {
               }
           },
           title: {
-              text: 'Draggable box'
+              text: 'Mesures avec des matrices de taille 100x100 avec une précision de 1e-5 pour la méthode' + file.name
           },
           subtitle: {
               text: 'Click and drag the plot area to rotate in space'
@@ -100,16 +100,18 @@ export default {
           yAxis: {
               min: Math.min.apply(null, times) - (Math.min.apply(null, times)/10),
               max: Math.max.apply(null,times) + (Math.max.apply(null, times)/10),
-              title: null
+              title: 'Temps de résolution en ms'
           },
           xAxis: {
               min: Math.min.apply(null, errors) - (Math.min.apply(null, errors)/10),
               max: Math.max.apply(null, errors) + (Math.max.apply(null, errors)/10),
+              title: 'Erreurs',
               gridLineWidth: 1
           },
           zAxis: {
               min: Math.min.apply(null, iterations) - (Math.min.apply(null, iterations)/10),
               max: Math.max.apply(null, iterations) + (Math.max.apply(null, iterations)/10),
+              title: 'Nombre d\'itérations',
               showFirstLabel: false
           },
           legend: {

@@ -2,16 +2,16 @@
 #Presentation
     slide(steps="3" :mouseNavigation='false')
         h2.align-center Optimisation des méthodes itératives pour la résolution de systèmes d'équations linéaires
-        h3.align-center(v-if="step >= 2") Quel est-ton nom ?
-        .align-center(v-if="step >= 2" style="margin-bottom: 0; ")
+        // h3.align-center(v-if="step >= 2") Quel est-ton nom ?
+        // .align-center(v-if="step >= 2" style="margin-bottom: 0; ")
           input.align-center(type="text" name="" value="" v-model="nomdumec")
           p.align-center(v-if="nomdumec !== '' " style='margin-bottom: 5px;') Bonjour {{nomdumec}}
-        introdiagram(:nomdumec='nomdumec' v-if="step === 3" style="margin-top: -50px;")
-    krylov(:nomdumec='nomdumec', :mouseNavigation='false', :demo1='false', :demo2='false')
+        introdiagram(:nomdumec='nomdumec' v-if="step === 2" style="margin-top: -50px;")
     richardson(:nomdumec='nomdumec', :mouseNavigation='false')
+    krylov(:nomdumec='nomdumec', :mouseNavigation='false', :demo1='false', :demo2='false')
     sor(:nomdumec='nomdumec' :mouseNavigation='false')
     slide(:mouseNavigation='false' steps="8")
-      p Titre de mes slides
+      h3(style="margin-bottom: 15px;") Résultats
       resultats1(v-if="step === 1")
       resultats2(v-if="step === 3")
       resultats3(v-if="step === 5")

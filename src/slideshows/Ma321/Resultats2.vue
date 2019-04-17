@@ -97,6 +97,7 @@ export default {
         scales: {
           yAxes: [{
             text: 'Temps de résolution en ms',
+            display: true,
             ticks: {
               beginAtZero: true
             }

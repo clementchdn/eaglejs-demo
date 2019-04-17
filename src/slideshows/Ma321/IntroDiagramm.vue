@@ -31,7 +31,7 @@ export default {
     Highcharts.chart('tester', {
         series: [{
             type: 'venn',
-            name: 'The Unattainable Triangle',
+            name: 'Présentation complexe',
             data: [{
                 sets: ['Esthétique'],
                 value: 2

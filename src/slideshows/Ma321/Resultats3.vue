@@ -27,14 +27,17 @@ export default {
     // Reduce the animation steps for demo clarity.
     this.myChart = new Chart(ctx, {
       type: 'line',
+      title: {
+        text: 'Teemps de résolution en secondes pour différentes tailles de matrices'
+      },
       data: {
-        labels: [3, 5, 10, 15, 20, 25, 50, 75, 100, 200, 500, 1000, 1001, 1010, 1050],
+        labels: [3, 5, 10, 15, 20, 25, 50, 75, 100, 250, 500, 1000], // , 200, 500, 1000, 1001, 1010, 1050],
         datasets: [{
           label: 'temps Gauss',
           data: [0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 0.00000000e+00,
             0.00000000e+00, 0.00000000e+00, 4.28886414e-02, 1.49932861e-01,
-            2.86247730e-01, 2.07795119e+00, 3.32249317e+01, 2.65067729e+02,
-            2.73051842e+02, 2.83206855e+02, 3.14005286e+02],
+            2.86247730e-01], /* , 2.07795119e+00, 3.32249317e+01, 2.65067729e+02,
+            2.73051842e+02, 2.83206855e+02, 3.14005286e+02], */
           borderWidth: 2,
           borderColor: 'blue',
           pointBackgroundColor: 'blue',
@@ -46,8 +49,8 @@ export default {
           label: 'temps Cholesky',
           data: [1.95623636e-01, 1.99961662e-03, 9.96589661e-04, 1.99437141e-03,
             5.70483208e-02, 0.00000000e+00, 3.12438011e-02, 6.24837875e-02,
-            1.41240835e-01, 1.11279655e+00, 1.36044064e+01, 1.04207876e+02,
-            1.02150656e+02, 1.06075644e+02, 1.16076639e+02],
+            1.41240835e-01], /* 1.11279655e+00, 1.36044064e+01, 1.04207876e+02,
+            1.02150656e+02], 1.06075644e+02, 1.16076639e+02], */
           borderWidth: 2,
           borderColor: 'red',
           pointBackgroundColor: 'red',
@@ -58,6 +61,11 @@ export default {
         ]
       },
       options: {
+        title: {
+          display: true,
+          text: 'Temps de résolution en s pour différentes tailles de matrices',
+          fontsize: 12
+        },
         scales: {
           yAxes: [{
             ticks: {

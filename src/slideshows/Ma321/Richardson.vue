@@ -124,7 +124,7 @@ eg-transition(enter='slideInRight', v-if='step <= 22')
       .align-center.bordered(v-if='step >= 17') Possibilité de choisir un <math><mrow><mi>&gamma;</mi></mrow></math> pour lequel la méthode converge
   .subslide(v-if='step > 17 && step <= 20')
     .eg-slide-content
-      h2 Choix du paramètre <math><mrow><mi>&gamma;</mi></mrow></math>
+      h2 Choix du paramètre <div style="display: inline-block; font-size: 25px;"><math><mrow><mi>&gamma;</mi></mrow></math></div>
       p Objectifs
       #objectifs
         .subgauche
