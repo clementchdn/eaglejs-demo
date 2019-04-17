@@ -64,11 +64,11 @@ export default {
 </script>
 <style lang='scss' scoped>
 .eg-slide, .subslide {
-  height: 100%;
+  // height: 100%;
   .eg-slide-content {
     //display: grid;
     grid-row-gap: 10px;
-    height: 100%;
+    // height: 100%;
 
     #objectifs {
       display: grid;

@@ -1,13 +1,16 @@
 <template lang="pug">
 eg-transition(:enter='enter', v-if="step <=27")
   .eg-slide(v-if='active && step < 6')
-    .eg-slide-content
-      p Les sous-espaces de Krylov, introduits en 1931 par le mathématicien éponyme, englobent un ensemble de méthodes permettant de résoudre différents problèmes de mathématiques.
-      ul(v-if="step>=1")
-        li(v-if="step>=2") Réolution de systèmes linéaires
-        li(v-if="step>=3") Minimisation
-        li(v-if="step>=4") Problèmes de valeurs propres
-        li(v-if="step>=5") ...
+    #krykry
+      .subgauche
+        p Les sous-espaces de Krylov, introduits en 1931 par le mathématicien éponyme, englobent un ensemble de méthodes permettant de résoudre différents problèmes de mathématiques.
+        ul(v-if="step>=1")
+          li(v-if="step>=2") Réolution de systèmes linéaires
+          li(v-if="step>=3") Minimisation
+          li(v-if="step>=4") Problèmes de valeurs propres
+          li(v-if="step>=5") ...
+      .subdroite
+        img(src='./Ivan_Krylov.jpg' style='width: 400px;')
   eg-transition(leave='slideOutLeft' v-if="step === 6")
     .subslide
         h3 De Jacobi à Krylov :
@@ -494,11 +497,11 @@ export default {
     background: white;
   }
 }
-#codeGMRES {
+#codeGMRES, #krykry {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 66% 34%;
   grid-column-gap: 1vw;
   .subgauche {
     display: grid;
@@ -506,8 +509,8 @@ export default {
     height: 100%;
     margin: auto;
     grid-column: 1;
-    h3 {grid-row: 1;}
-    img {grid-row: 2; margin:auto;}
+    p {grid-row: 1; margin-top: 10%}
+    ul {grid-row: 2; margin-top : 25%;}
   }
   .subdroite {
     display: grid;
@@ -516,7 +519,7 @@ export default {
     margin: auto;
     grid-column: 2;
     h3 {grid-row: 1;}
-    img {grid-row: 2; margin: auto}
+    img {grid-row: 2; margin-top: 20%}
   }
 }
 </style>

@@ -6,10 +6,10 @@
         // .align-center(v-if="step >= 2" style="margin-bottom: 0; ")
           input.align-center(type="text" name="" value="" v-model="nomdumec")
           p.align-center(v-if="nomdumec !== '' " style='margin-bottom: 5px;') Bonjour {{nomdumec}}
-        introdiagram(:nomdumec='nomdumec' v-if="step === 2" style="margin-top: -50px;")
+        introdiagram(:nomdumec='nomdumec' v-if="step === 2" style="margin-top: 0;")
     richardson(:nomdumec='nomdumec', :mouseNavigation='false')
-    krylov(:nomdumec='nomdumec', :mouseNavigation='false', :demo1='false', :demo2='false')
     sor(:nomdumec='nomdumec' :mouseNavigation='false')
+    krylov(:nomdumec='nomdumec', :mouseNavigation='false', :demo1='false', :demo2='false')
     slide(:mouseNavigation='false' steps="8")
       h3(style="margin-bottom: 15px;") Résultats
       resultats1(v-if="step === 1")
